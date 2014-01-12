@@ -1,5 +1,5 @@
 /*!
- * gallerySystem.js v1.0.0
+ * GalleryModule.js v1.0.0
  * http://www.matrsomething.com
  *
  * Licensed under the MIT license.
