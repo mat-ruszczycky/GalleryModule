@@ -16,11 +16,12 @@ var GalleryModule = (function ($, window) {
 
         currentRecordInfo : null,
         uiGrid : $(".ui-gallery-grid"),
-        backBtn : $("#back-home"),
+        backBtn : $(".gallery-preview-close"),
         uiNav : $(".gallery-ui-record"),
         page : $("#gallery-ui-preview"),
         uiMain : $("#ui-gallery-main"),
         overlay : $("#overlay"),
+        imgView : $("#gallery-ui-img"),
         navDisabled : false,
         position : null,
         settings : {
@@ -44,7 +45,9 @@ var GalleryModule = (function ($, window) {
         hideUI : function () {
             Gallery.uiMain.css({"display" : "none"});
             window.scrollTo(0, 0);
-            Gallery.page.fadeIn();
+            Gallery.imgView.ready(function () {
+                Gallery.page.fadeIn();
+            });
         },
 
         scaleUI : function () {
