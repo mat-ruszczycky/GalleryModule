@@ -22,8 +22,10 @@ var GalleryModule = (function ($, window) {
         uiMain : $("#ui-gallery-main"),
         overlay : $("#overlay"),
         imgView : $("#gallery-ui-img"),
+        menu : $("#ui-gallery-main-nav-menu"),
         navDisabled : false,
         position : null,
+        menuIsOpen : false,
         settings : {
             transition : "scale"
         },
@@ -32,7 +34,7 @@ var GalleryModule = (function ($, window) {
             Gallery.overlay.show();
             Gallery.uiMain.show();
             Gallery.resizeImages();
-
+            Gallery.menu.show();
             Gallery.overlay.delay(300).fadeOut(function () {
                 Gallery.navDisabled = false;
                 if (Gallery.settings.transition === "block") {
@@ -43,6 +45,7 @@ var GalleryModule = (function ($, window) {
         },
 
         hideUI : function () {
+            Gallery.menu.hide();
             Gallery.uiMain.css({"display" : "none"});
             window.scrollTo(0, 0);
             Gallery.imgView.ready(function () {
@@ -55,9 +58,9 @@ var GalleryModule = (function ($, window) {
             setTimeout(Gallery.hideUI, 600);
         },
 
-        showPreview : function (event) {
-            event.preventDefault();
-            var cssValue = event.pageX + "px " + event.pageY + "px";
+        showPreview : function (e) {
+            e.preventDefault();
+            var cssValue = e.pageX + "px " + e.pageY + "px";
 
             Gallery.currentRecordInfo = this;
             //Gallery.position = this.offsetTop;
@@ -68,8 +71,11 @@ var GalleryModule = (function ($, window) {
 
             Gallery.uiGrid.css({"-webkit-transform-origin" : cssValue, "-moz-transform-origin" : cssValue, "-o-transform-origin" : cssValue, "-ms-transform-origin" : cssValue, "transform-origin" : cssValue});
 
-            $(Gallery.currentRecordInfo).addClass("fade");
+            if(Gallery.menuIsOpen){
+                Gallery.hideMenu();
+            }
 
+            $(Gallery.currentRecordInfo).addClass("fade");
 
             if (Gallery.settings.transition === "scale") {
                 setTimeout(Gallery.scaleUI, 600);
@@ -78,11 +84,10 @@ var GalleryModule = (function ($, window) {
                 $.scrollTo(0, 0, {duration: 600, onAfter : function () {Gallery.uiNav.removeClass("intro-show"); }});
                 setTimeout(Gallery.hideUI, 1200);
             }
-
         },
 
-        hidePreview : function (event) {
-            event.preventDefault();
+        hidePreview : function (e) {
+            e.preventDefault();
             $("body, #ui-main").addClass("no-scroll");
             Gallery.uiGrid.removeClass("scale");
             $(Gallery.currentRecordInfo).removeClass("fade");
@@ -121,10 +126,32 @@ var GalleryModule = (function ($, window) {
             }
         },
 
+        showMenu : function () {
+            Gallery.menu.find("img").attr("src" , "images/menuClose.jpg");
+            $("#ui-gallery-main-nav").addClass("ui-gallery-main-nav-open");
+            Gallery.menuIsOpen = true;
+        },
+
+        hideMenu : function () {
+            Gallery.menu.find("img").attr("src" , "images/menu.jpg");
+            $("#ui-gallery-main-nav").removeClass("ui-gallery-main-nav-open");
+            Gallery.menuIsOpen = false;
+        },
+
+        delegateMenu : function (e) {
+            e.preventDefault();
+            if (!Gallery.menuIsOpen) {
+                Gallery.showMenu();
+            } else {
+                Gallery.hideMenu();
+            }
+        },
+
         bindUI : function () {
             Gallery.uiNav.hover(Gallery.showRecordInfo, Gallery.hideRecordInfo);
             Gallery.uiNav.click(Gallery.showPreview);
             Gallery.backBtn.click(Gallery.hidePreview);
+            Gallery.menu.click(Gallery.delegateMenu);
             $(window).resize(Gallery.resizeImages);
         },
 
