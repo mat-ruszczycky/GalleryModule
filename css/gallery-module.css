@@ -304,26 +304,14 @@ a{color:#666;}
 #gallery-ui-preview-close{
     position: fixed;
     z-index: 1;
-    top: 0;
+    top: 35%;
     right: 0;
-    height: 5%;
-    width: 5%;
+    width: 75px;
+
     background:#fff; 
 }
 
-#gallery-ui-preview-nav{
-    position: fixed;
-    z-index: 1;
-    bottom: 0;
-    right: 0;
-    height: 5%;
-    width: 33%;
-    background:#fff;
-}
 
-#gallery-ui-preview-nav a{
-    width: 33.333%;
-}
 
 /* LOADING */
 #overlay{
