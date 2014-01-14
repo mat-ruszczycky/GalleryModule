@@ -4,7 +4,8 @@ html, body, #ui-gallery-main{height: 100%; font-family: 'Poiret One', cursive;}
 body{
     font-size: 14px;
     line-height: 1;
-    background:url("../images/stripe_dark_bg.gif");
+    /*background:url("../images/stripe_dark_bg.gif");*/
+    background:#b8c0c2;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -99,6 +100,13 @@ a{color:#666; outline: none;}
     -o-transition:bottom 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
     transition:bottom 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
+
+#ui-gallery-main-nav-menu{
+    position: absolute; 
+    top:-75px; 
+    right:0;
+}
+
 
 .ui-gallery-main-nav-closed{
     bottom: -75px;
@@ -350,7 +358,7 @@ a{color:#666; outline: none;}
 #gallery-ui-preview-menu{
     position: fixed;
     z-index: 1;
-    top: 38.75%;
+    top: 37.75%;
     right: 0;
     width: 75px;
     background:#fff; 
@@ -365,7 +373,8 @@ a{color:#666; outline: none;}
 	height:100%;
 	top:0;
 	left:0;
-	background:url("../images/stripe_dark_bg.gif");
+	/*background:url("../images/stripe_dark_bg.gif");*/
+    background:#b8c0c2;
 	display:none;
 	z-index:10;
 }
