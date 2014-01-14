@@ -161,38 +161,45 @@ var GalleryModule = (function ($, window) {
                 $(Gallery.uiNav[i]).attr('data-position', i);
             }
         },
+
+        updatePreview : function (direction) {
+            var transition = function () {
+                Gallery.imgView.hide();
+                Gallery.imgView.css({"marginLeft" : "0" , "marginRight" : "0"});
+                Gallery.imgView.attr("src" , "images/" + Gallery.imageBank[Gallery.imgIndex]);
+            };
+
+            if (direction == "left") {
+                Gallery.imgView.animate({"marginLeft" : "-200%"}, transition);
+            } else {
+                Gallery.imgView.animate({"marginRight" : "-200%"}, transition);
+            }           
+            
+            Gallery.imgView.ready(function(){
+                Gallery.imgView.fadeIn();
+            });
+        },
         
-        nextPreview : function () {
+        nextPreview : function (e) {
+            e.preventDefault();
             if (Gallery.imgIndex < Gallery.imageBank.length - 1) {
                 Gallery.imgIndex++;
             } else {
                 Gallery.imgIndex = 0;
             }
             
-            Gallery.imgView.fadeOut(function(){
-                Gallery.imgView.attr("src" , "images/" + Gallery.imageBank[Gallery.imgIndex]);
-            });
-            
-            Gallery.imgView.ready(function(){
-                Gallery.imgView.fadeIn();
-            });
-            
+            Gallery.updatePreview("right");
         },
         
-        backPreview : function () {
+        backPreview : function (e) {
+            e.preventDefault();
             if (Gallery.imgIndex > 0) {
                 Gallery.imgIndex--;
             } else {
                 Gallery.imgIndex = Gallery.imageBank.length - 1;
             }
             
-            Gallery.imgView.fadeOut(function(){
-                Gallery.imgView.attr("src" , "images/" + Gallery.imageBank[Gallery.imgIndex]);
-            });
-            
-            Gallery.imgView.ready(function(){
-                Gallery.imgView.fadeIn();
-            });
+            Gallery.updatePreview("left");
         },
 
         bindUI : function () {

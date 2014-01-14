@@ -155,7 +155,7 @@ a{color:#666; outline: none;}
 .hover{
     position:absolute;
     z-index:1;
-    right:-100%;
+    right:-200%;
 
     -moz-transition:right 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
     -webkit-transition:right 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
