@@ -9,4 +9,4 @@ An HTML5, CSS3, &amp; JavaScript single page gallery demo.
 Live Demo
 =============
 
-A live version of this demo can be found here : (http://matrsomething.com/demos/GalleryModule/)
+A live version of this demo can be found here : <a href="http://matrsomething.com/demos/GalleryModule/">View Here</a>
