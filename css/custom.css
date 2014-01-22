@@ -1,0 +1,23 @@
+/* GLOBALS */
+html, body, #ui-gallery-main{height: 100%; font-family: 'Poiret One', cursive;}
+
+body{
+    font-size: 14px;
+    line-height: 1;
+    background:#b8c0c2;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1{margin:0;}
+
+a{color:#666; outline: none;}
+
+::selection {
+    background: red; /* Safari */
+    color:#fff;
+}
+
+::-moz-selection {
+    background: red; /* Firefox */
+    color:#fff;
+}
