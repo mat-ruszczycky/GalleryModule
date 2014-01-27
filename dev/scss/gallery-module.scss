@@ -1,28 +1,37 @@
+//SASSY MIXINS
+@mixin setTransition($trans: all 0.5s){
+    -webkit-transition: $trans;
+    -moz-transition: $trans;
+    -o-transition: $trans;
+    -ms-transition: $trans;
+    transition: $trans;
+}
+
+@mixin setDelay($delay){
+    
+}
+
+@mixin setTransform($transform){
+    -webkit-transform: $transform;
+    -moz-transform: $transform;
+    -o-transform: $transform;
+    -ms-transform: $transform;
+    transform: $transform;
+}
+
+
 /* COMMON TRANSITIONS */
 .fade{opacity:0;}
 
 .scale{
     
-     -webkit-transform: scale(6,6);
-     -moz-transform: scale(6,6);
-     -o-transform: scale(6,6);
-     -ms-transform: scale(6,6);
-     transform: scale(6,6);
-    
+    @include setTransform(scale(6,6));
 
      /*     
-     -webkit-transform: rotateX(90deg);
-     -moz-transform: rotateX(90deg);
-     -o-transform: rotateX(90deg);
-     -ms-transform: rotateX(90deg);
-     transform: rotateX(900deg);
-
-     -webkit-transform: rotateY(90deg);
-     -moz-transform: rotateY(90deg);
-     -o-transform: rotateY(90deg);
-     -ms-transform: rotateY(90deg);
-     transform: rotateY(900deg);
+     @include setTransform(rotateX(90deg));
+     @include setTransform(rotateY(90deg));
     */
+
      opacity: 0;
 }
 
@@ -33,11 +42,8 @@
     min-width: 800px; /* Cut off limit for scaling window width */
 }
 
-.ui-gallery-grid{       
-    -webkit-transition:all 0.5s cubic-bezier(0, 0, .58, 1);
-    -moz-transition:all 0.5s cubic-bezier(0, 0, .58, 1);
-    -o-transition:all 0.5s cubic-bezier(0, 0, .58, 1);
-    transition:all 0.5s cubic-bezier(0, 0, .58, 1);
+.ui-gallery-grid{   
+    @include setTransition(0.5s cubic-bezier(0, 0, .58, 1));
 }
 
 .gallery-ui-record{
@@ -94,10 +100,8 @@
     background: #fff;
     z-index: 4;
 
-    -moz-transition:bottom 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
-    -webkit-transition:bottom 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
-    -o-transition:bottom 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
-    transition:bottom 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+    @include setTransition(bottom 0.35s cubic-bezier(0.645, 0.045, 0.355, 1));
 }
 
 #ui-gallery-main-nav-menu{
@@ -143,10 +147,7 @@
     z-index:3;
     right:0%;
 	
-    -moz-transition:right 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
-    -webkit-transition:right 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
-    -o-transition:right 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
-    transition:right 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
+    @include setTransition(right 0.35s cubic-bezier(0.645, 0.045, 0.355, 1));
 }
 
 .start-move-right{right:100%;}
@@ -156,10 +157,7 @@
     z-index:1;
     right:-100%;
 
-    -moz-transition:right 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
-    -webkit-transition:right 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
-    -o-transition:right 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
-    transition:right 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
+    @include setTransition(right 0.35s cubic-bezier(0.645, 0.045, 0.355, 1));
 }
 
 .hover-move-right{right:0%;}
@@ -188,13 +186,13 @@
 .caption span{display:block; background: rgba(0,0,0,.7);}
 
 .cap-1, .cap-2, .cap-3{
-    -webkit-transform: translate3d(0, 90%, 0);
-    -moz-transform: translate3d(0, 90%, 0);
-    -o-transform: translate3d(0, 90%, 0);
-    -ms-transform: translate3d(0, 90%, 0);
-    transform: translate3d(0, 90%, 0);
+
+    @include setTransform(translate3d(0, 90%, 0));
     
     opacity:0;
+
+    @include setTransition(right 0.35s cubic-bezier(0.645, 0.045, 0.355, 1));
+    @include setTransition(opacity 0.15s);
     
     -moz-transition:-moz-transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.15s;
     -webkit-transition:-webkit-transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.15s;
@@ -235,33 +233,15 @@
 
 
 /* INTRO TRANSITION SEQUNCE */
-
 .item-1, .item-2, .item-3, .item-4, .item-5, .item-6, .item-7, .item-8, .item{
     /*
-    -webkit-transition:top 0.5s cubic-bezier(0, 0, .58, 1), opacity 0.35s;
-    -moz-transition:top 0.5s cubic-bezier(0, 0, .58, 1), opacity 0.35s;
-    -o-transition:top 0.5s cubic-bezier(0, 0, .58, 1), opacity 0.35s;
-    transition:top 0.5s cubic-bezier(0, 0, .58, 1), opacity 0.35s;
-    
-     
-    -webkit-transition:right 0.5s cubic-bezier(0, 0, .58, 1), opacity 0.35s;
-    -moz-transition:right 0.5s cubic-bezier(0, 0, .58, 1), opacity 0.35s;
-    -o-transition:right 0.5s cubic-bezier(0, 0, .58, 1), opacity 0.35s;
-    transition:right 0.5s cubic-bezier(0, 0, .58, 1), opacity 0.35s;
+    @include setTransition(top 0.5s cubic-bezier(0, 0, .58, 1), opacity 0.35s);
+    @include setTransition(right 0.5s cubic-bezier(0, 0, .58, 1), opacity 0.35s);
+    @include setTransition(left 0.5s cubic-bezier(0, 0, .58, 1), opacity 0.35s);
     */
-  
-    -webkit-transition:bottom 0.5s cubic-bezier(0, 0, .58, 1), opacity 0.35s;
-    -moz-transition:bottom 0.5s cubic-bezier(0, 0, .58, 1), opacity 0.35s;
-    -o-transition:bottom 0.5s cubic-bezier(0, 0, .58, 1), opacity 0.35s;
-    transition:bottom 0.5s cubic-bezier(0, 0, .58, 1), opacity 0.35s;
-    
-    
-    /*
-    -webkit-transition:left 0.5s cubic-bezier(0, 0, .58, 1), opacity 0.35s;
-    -moz-transition:left 0.5s cubic-bezier(0, 0, .58, 1), opacity 0.35s;
-    -o-transition:left 0.5s cubic-bezier(0, 0, .58, 1), opacity 0.35s;
-    transition:left 0.5s cubic-bezier(0, 0, .58, 1), opacity 0.35s;*/
-    
+
+    @include setTransition(bottom 0.5s cubic-bezier(0, 0, .58, 1));    
+    @include setTransition(opacity 0.35s);   
 }
 
 .item-1, .item-2, .item-3{
