@@ -1,4 +1,4 @@
-GalleryModule
+<h2>GalleryModule</h2>
 =============
 
 An HTML5, CSS3, &amp; JavaScript single page gallery demo.  
