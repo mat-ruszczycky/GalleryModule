@@ -10,13 +10,18 @@
 </ul>
 
 
+
 <h3>Live Demo</h3>
 
 <hr>
 
 <p>A live version of this demo can be found here : <a href="http://matrsomething.com/demos/GalleryModule/">View Here</a></p>
 
+
+
 <h3>To Do's &amp; Thoughts</h3>
+
+<hr>
 
 <ol>
 	<li>Setup category filtering...possibly use JSON &amp; RESTful service? </li>
@@ -24,6 +29,7 @@
 	<li>Check performance on mobile &amp; tablet.  Update CSS &amp; JS accordingly. </li>
 	<li>Take advantage of modernizr &amp; Irish conditional <html> for cross browser compatabilty.</li>
 </ol>
+
 
 
 <h3>Change Log</h3>
