@@ -1,4 +1,7 @@
 <h3>GalleryModule</h3>
+
+<hr>
+
 <p>An HTML5, CSS3, &amp; JavaScript single page gallery demo.</p>
 
 <ul>
@@ -8,6 +11,9 @@
 
 
 <h3>Live Demo</h3>
+
+<hr>
+
 <p>A live version of this demo can be found here : <a href="http://matrsomething.com/demos/GalleryModule/">View Here</a></p>
 
 <h3>To Do's &amp; Thoughts</h3>
@@ -21,4 +27,7 @@
 
 
 <h3>Change Log</h3>
+
+<hr>
+
 <p>01.26.2014 : Workflow udpate to include development version(s) of JS and SASS.</p> 
